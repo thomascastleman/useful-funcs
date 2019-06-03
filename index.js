@@ -38,9 +38,18 @@ exports.randSubset = function(arr, num) {
 }
 
 /*	Choose a specified number of elements randomly from a given array, 
-	allowing duplicates and choosing more elements than are in the array. */
+	allowing duplicates and choosing more elements than are in the array.
+	Returns [] when given empty array */
 exports.choose = function(arr, num) {
+	var set = [];
 
+	if (arr.length > 0) {
+		for (var i = 0; i < num; i++) {
+			set.push(arr[Math.floor(Math.random() * arr.length)]);
+		}
+	}
+
+	return set;
 }
 
 /* Remove any duplicate entries in an array */
