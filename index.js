@@ -57,11 +57,15 @@ exports.removeDuplicates = function(arr) {
 
 }
 
-/* Remove a subset of elements that match a given quality */
-exports.remove = function(arr, qual) {
+/* Extract a subset of elements that match a given quality */
+exports.filter = function(arr, qual) {
+	var filtered = [];
 
+	for (var i = 0; i < arr.length; i++) {
+		if (qual(arr[i])) {
+			filtered.push(arr[i]);
+		}
+	}
+
+	return filtered;
 }
-
-var a = ['test', 'another thing', 'one more', 'more data', 'eek'];
-
-var uf = exports;
