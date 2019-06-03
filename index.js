@@ -52,17 +52,26 @@ exports.choose = function(arr, num) {
 	return set;
 }
 
-/* Remove any duplicate entries in an array */
-exports.removeDuplicates = function(arr) {
-
-}
-
 /* Extract a subset of elements that match a given quality */
 exports.filter = function(arr, qual) {
 	var filtered = [];
 
 	for (var i = 0; i < arr.length; i++) {
 		if (qual(arr[i])) {
+			filtered.push(arr[i]);
+		}
+	}
+
+	return filtered;
+}
+
+/* Return version of an array without any duplicate entries */
+exports.unique = function(arr) {
+	var filtered = [];
+
+	for (var i = 0; i < arr.length; i++) {
+		// if element not already present in filtered array
+		if (filtered.indexOf(arr[i]) == -1) {
 			filtered.push(arr[i]);
 		}
 	}
