@@ -1,0 +1,23 @@
+{
+  "name": "useful-funcs",
+  "version": "1.0.0",
+  "description": "Some Javascript utility functions for tasks I find myself doing often",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomascastleman/useful-funcs.git"
+  },
+  "keywords": [
+    "utility",
+    "functions"
+  ],
+  "author": "Thomas Castleman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thomascastleman/useful-funcs/issues"
+  },
+  "homepage": "https://github.com/thomascastleman/useful-funcs#readme"
+}
