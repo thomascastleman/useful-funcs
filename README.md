@@ -111,3 +111,30 @@ var a = [
 var e = uf.extract(a, 'uid');
 // --> [1, 5, 2]
 ```
+
+----
+
+#### group()
+```javascript
+group(array, property)
+```
+
+Group an array of objects by the value of a given property. Returns a mapping of each value of that property to an array of the objects that share that value
+
+```javascript
+var a = [
+	{ uid: 1, cost: 2 },
+	{ uid: 2, cost: 3 },
+	{ uid: 3, cost: 2 },
+	{ uid: 4, cost: 7 },
+	{ uid: 5, cost: 7 }
+];
+
+var m = uf.group(a, 'cost');
+// -->
+// {
+//	'2': [ { uid: 1, cost: 2 }, { uid: 3, cost: 2 } ],
+//	'3': [ { uid: 2, cost: 3 } ],
+//	'7': [ { uid: 4, cost: 7 }, { uid: 5, cost: 7 } ]
+// }
+```

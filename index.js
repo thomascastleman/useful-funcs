@@ -90,3 +90,23 @@ exports.extract = function(arr, prop) {
 
 	return ext;
 }
+
+/*	Group an array of objects by the value of a given property. 
+	Returns map of each value of that property to an array of the objects 
+	that share that value */
+exports.group = function(arr, prop) {
+	var map = {};
+
+	for (var i = 0; i < arr.length; i++) {
+		// if no existing entry for this property
+		if (!map[arr[i][prop]]) {
+			// add new array
+			map[arr[i][prop]] = [arr[i]];
+		} else {
+			// add to existing array
+			map[arr[i][prop]].push(arr[i]);
+		}
+	}
+
+	return map;
+}
