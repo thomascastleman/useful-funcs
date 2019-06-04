@@ -90,3 +90,24 @@ var a = [1, 1, 2, 3, 5];
 var u = uf.unique(a);
 // --> [1, 2, 3, 5]
 ```
+
+----
+
+#### extract()
+```javascript
+extract(array, property)
+```
+
+Given an array of objects, returns an array of the values of a given property of those objects
+
+E.g.
+```javascript
+var a = [
+	{ uid: 1, name: "Bob" },
+	{ uid: 5, name: "Tom" }, 
+	{ uid: 2, name: "Steve" }
+];
+
+var e = uf.extract(a, 'uid');
+// --> [1, 5, 2]
+```

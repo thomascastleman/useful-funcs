@@ -78,3 +78,15 @@ exports.unique = function(arr) {
 
 	return filtered;
 }
+
+/*	Given an array of objects, extract an array containing the values for a 
+	single shared property of those objects. */
+exports.extract = function(arr, prop) {
+	var ext = [];
+
+	for (var i = 0; i < arr.length; i++) {
+		ext.push(arr[i][prop]);
+	}
+
+	return ext;
+}
