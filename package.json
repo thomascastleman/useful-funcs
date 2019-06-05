@@ -1,6 +1,6 @@
 {
   "name": "useful-funcs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Some Javascript utility functions for tasks I find myself doing often",
   "main": "index.js",
   "scripts": {
