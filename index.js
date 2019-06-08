@@ -1,25 +1,24 @@
 
 /* Get a single random element from an array */
-exports.rand = function(arr) {
-	if (arr.length > 0) {
+const rand = (arr) => {
+	if (arr.length > 0)
 		// return a single random element
 		return arr[Math.floor(Math.random() * arr.length)];
-	} else {
-		return null;
-	}
+
+	return null;
 }
 
 /*	Get a specified number of random elements from a given array, without repeats.
 	Returns an empty array if given array is empty, or if more elements are requested than
 	exist in the given array. */
-exports.randSubset = function(arr, num) {
+const randSubset = (arr, num) => {
 	// if non-empty array and subset strictly smaller
 	if (arr.length > 0 && num < arr.length) {
 		// get all possible indices in this array
-		var indices = Array.apply(null, { length: arr.length }).map(Number.call, Number);
-		var subset = [];
+		let indices = Array.apply(null, { length: arr.length }).map(Number.call, Number);
+		let subset = [];
 
-		for (var i = 0; i < num; i++) {
+		for (let i = 0; i < num; i++) {
 			// get random index of an index in arr
 			var rand = Math.floor(Math.random() * indices.length);
 
@@ -31,20 +30,19 @@ exports.randSubset = function(arr, num) {
 		}
 
 		return subset;
-	} else {
-		// return empty subset
-		return [];
 	}
+
+	return [];
 }
 
-/*	Choose a specified number of elements randomly from a given array, 
+/*	Choose a specified number of elements randomly from a given array,
 	allowing duplicates and choosing more elements than are in the array.
 	Returns [] when given empty array */
-exports.choose = function(arr, num) {
-	var set = [];
+const choose = (arr, num) => {
+	let set = [];
 
 	if (arr.length > 0) {
-		for (var i = 0; i < num; i++) {
+		for (let i = 0; i < num; i++) {
 			set.push(arr[Math.floor(Math.random() * arr.length)]);
 		}
 	}
@@ -53,60 +51,68 @@ exports.choose = function(arr, num) {
 }
 
 /* Extract a subset of elements that match a given quality */
-exports.filter = function(arr, qual) {
-	var filtered = [];
+const filter = (arr, qual) => {
+	let filtered = [];
 
-	for (var i = 0; i < arr.length; i++) {
-		if (qual(arr[i])) {
-			filtered.push(arr[i]);
-		}
+	for (let index of arr) {
+		if (qual(index))
+			filtered.push(index);
 	}
 
 	return filtered;
 }
 
 /* Return version of an array without any duplicate entries */
-exports.unique = function(arr) {
-	var filtered = [];
+const unique = (arr) => {
+	let filtered = [];
 
-	for (var i = 0; i < arr.length; i++) {
-		// if element not already present in filtered array
-		if (filtered.indexOf(arr[i]) == -1) {
-			filtered.push(arr[i]);
-		}
+	for (let current_index of arr) {
+		if (filtered.indexOf(current_index) == -1)
+			filtered.push(current_index);
 	}
 
 	return filtered;
 }
 
-/*	Given an array of objects, extract an array containing the values for a 
+/*	Given an array of objects, extract an array containing the values for a
 	single shared property of those objects. */
-exports.extract = function(arr, prop) {
-	var ext = [];
+const extract = (arr, prop) => {
+	let ext = [];
 
-	for (var i = 0; i < arr.length; i++) {
-		ext.push(arr[i][prop]);
+	for (let index of arr) {
+		ext.push(index[prop]);
 	}
 
 	return ext;
 }
 
-/*	Group an array of objects by the value of a given property. 
-	Returns map of each value of that property to an array of the objects 
+/*	Group an array of objects by the value of a given property.
+	Returns map of each value of that property to an array of the objects
 	that share that value */
-exports.group = function(arr, prop) {
-	var map = {};
+const group = (arr, prop) => {
+	let map = {};
 
-	for (var i = 0; i < arr.length; i++) {
+	for (let index of arr) {
 		// if no existing entry for this property
-		if (!map[arr[i][prop]]) {
+		if (!map[index[prop]])
 			// add new array
-			map[arr[i][prop]] = [arr[i]];
-		} else {
+			map[index[prop]] = [index];
+		else
 			// add to existing array
-			map[arr[i][prop]].push(arr[i]);
-		}
+			map[index[prop]].push(index);
 	}
 
 	return map;
+}
+
+
+/* Export Functions */
+module.exports = {
+	rand,
+	randSubset,
+	choose,
+	filter,
+	unique,
+	extract,
+	group
 }
